@@ -38,6 +38,7 @@ namespace WeatherApp.Webpage
             });
 
             services.AddTransient<CurrentWeatherService, CurrentWeatherService>();
+            services.AddTransient<WeatherForecastService, WeatherForecastService>();
             services.AddControllers();
         }
 
