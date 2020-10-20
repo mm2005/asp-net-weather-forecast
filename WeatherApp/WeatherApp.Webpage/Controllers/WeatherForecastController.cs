@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
+using WeatherApp.Webpage.Services;
 
 namespace WeatherApp.Webpage.Controllers
 {
@@ -12,16 +14,18 @@ namespace WeatherApp.Webpage.Controllers
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly CurrentWeatherService _currentWeatherService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, CurrentWeatherService currentWeatherService)
         {
             _logger = logger;
+            _currentWeatherService = currentWeatherService;
         }
 
         [HttpGet]
         public string Get()
         {
-            return "Hello World";
+            return _currentWeatherService.GetCurrentWeather().ToString();
         }
     }
 }
