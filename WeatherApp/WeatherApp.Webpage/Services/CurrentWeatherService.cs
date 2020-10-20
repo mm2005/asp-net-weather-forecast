@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
+using WeatherApp.Webpage.Models;
 
 namespace WeatherApp.Webpage.Services
 {
@@ -22,7 +23,7 @@ namespace WeatherApp.Webpage.Services
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        public JObject GetCurrentWeather()
+        public CurrentWeather GetCurrentWeather()
         {
             string jsonString = "";
 
@@ -44,7 +45,18 @@ namespace WeatherApp.Webpage.Services
             }
 
             var json = JObject.Parse(jsonString);
-            return json;
+            var currentWeather = new CurrentWeather()
+            {
+                ID = Convert.ToInt64(json.GetValue("id")),
+                City = json.GetValue("name").ToString(),
+                Description = (string)json["weather"][0]["description"],
+                Icon = (string)json["weather"][0]["icon"],
+                Humidity = Convert.ToInt32(json.GetValue("main")["humidity"]),
+                Temp = Convert.ToInt32(json.GetValue("main")["temp"]),
+                Pressure = Convert.ToInt32(json.GetValue("main")["pressure"]),
+                Wind = Convert.ToDouble((json.GetValue("wind")["speed"]))
+            };
+            return currentWeather;
         }
     }
 }

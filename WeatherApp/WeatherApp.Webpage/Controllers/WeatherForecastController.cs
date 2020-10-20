@@ -27,5 +27,7 @@ namespace WeatherApp.Webpage.Controllers
         {
             return _currentWeatherService.GetCurrentWeather().ToString();
         }
+
+
     }
 }

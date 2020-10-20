@@ -14,5 +14,6 @@ namespace WeatherApp.Webpage.Models
         public int Pressure { get; set; }
         public int Humidity { get; set; }
         public double Wind { get; set; }
+        public string Icon { get; set; }
     }
 }
