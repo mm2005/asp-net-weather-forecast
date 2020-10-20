@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using WeatherApp.Webpage.Models;
 using WeatherApp.Webpage.Services;
 
 namespace WeatherApp.Webpage.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class TheRealWeatherForecastController : ControllerBase
     {
         private readonly ILogger<TheRealWeatherForecastController> _logger;

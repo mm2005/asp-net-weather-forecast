@@ -2,10 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Security.Principal;
-using System.Threading.Tasks;
 using WeatherApp.Webpage.Models;
 
 namespace WeatherApp.Webpage.Services
@@ -48,7 +45,6 @@ namespace WeatherApp.Webpage.Services
 
             foreach(var token in json)
             {
-                //var bob = Convert.ToInt64(token["dt"]);
                 var weatherForecast = new WeatherForecast
                 {
                     ExactDate = Convert.ToInt64(token["dt"]),

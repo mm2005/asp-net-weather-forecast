@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WeatherApp.Webpage.Models
+﻿namespace WeatherApp.Webpage.Models
 {
     public class WeatherForecast
     {
