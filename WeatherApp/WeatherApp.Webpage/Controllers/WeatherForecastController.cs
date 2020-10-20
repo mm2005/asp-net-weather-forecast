@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
+using WeatherApp.Webpage.Models;
 using WeatherApp.Webpage.Services;
 
 namespace WeatherApp.Webpage.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
@@ -22,12 +23,10 @@ namespace WeatherApp.Webpage.Controllers
             _currentWeatherService = currentWeatherService;
         }
 
-        [HttpGet]
-        public string Get()
+        [HttpGet("{city}")]
+        public CurrentWeather Get(string city)
         {
-            return _currentWeatherService.GetCurrentWeather().ToString();
+            return _currentWeatherService.GetCurrentWeather(city);
         }
-
-
     }
 }

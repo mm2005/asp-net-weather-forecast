@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Net.Http;
 using WeatherApp.Webpage.Models;
 
@@ -12,9 +8,7 @@ namespace WeatherApp.Webpage.Services
 {
     public class CurrentWeatherService
     {
-        string apiKey = "3c850b0463346d2fffad82b66d5eb561";
-        //string url = "https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric";
-        string url = "https://api.openweathermap.org/data/2.5/weather?q=budapest&appid=3c850b0463346d2fffad82b66d5eb561&units=metric";
+        const string API_KEY = "3c850b0463346d2fffad82b66d5eb561";
 
         public CurrentWeatherService(IWebHostEnvironment webHostEnvironment)
         {
@@ -23,9 +17,10 @@ namespace WeatherApp.Webpage.Services
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        public CurrentWeather GetCurrentWeather()
+        public CurrentWeather GetCurrentWeather(string city)
         {
             string jsonString = "";
+            string url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric";
 
             using (var client = new HttpClient())
             {
