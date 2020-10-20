@@ -52,6 +52,7 @@ namespace WeatherApp.Webpage.Services
                 {
                     City = (string)element["address"]["city"],
                     State = (string)element["address"]["state"],
+                    Country = (string)element["address"]["country"],
                     CountryCode = (string)element["countryCode"]
                 };
                 suggestionList.Add(locationSuggestion);
