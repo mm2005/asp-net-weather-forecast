@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WeatherApp.Webpage.Models
+namespace WeatherApp.WebSite.Models
 {
     public class Location
     {

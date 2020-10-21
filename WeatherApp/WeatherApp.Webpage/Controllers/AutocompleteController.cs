@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WeatherApp.Webpage.Models;
-using WeatherApp.Webpage.Services;
+using WeatherApp.WebSite.Models;
+using WeatherApp.WebSite.Services;
 
-namespace WeatherApp.Webpage.Controllers
+namespace WeatherApp.WebSite.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

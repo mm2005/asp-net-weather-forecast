@@ -1,10 +1,10 @@
 using NSubstitute;
 using NSubstitute.Core.Arguments;
 using NUnit.Framework;
-using WeatherApp.Webpage.Controllers;
-using WeatherApp.Webpage.Models;
-using WeatherApp.Webpage.Services;
-using WeatherApp.Webpage.Services.Interfaces;
+using WeatherApp.WebSite.Controllers;
+using WeatherApp.WebSite.Models;
+using WeatherApp.WebSite.Services;
+using WeatherApp.WebSite.Services.Interfaces;
 
 namespace WeatherApp.WebSite
 {

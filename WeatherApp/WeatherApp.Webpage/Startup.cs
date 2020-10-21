@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WeatherApp.Webpage.Models;
-using WeatherApp.Webpage.Services;
-using WeatherApp.Webpage.Services.Interfaces;
+using WeatherApp.WebSite.Models;
+using WeatherApp.WebSite.Services;
+using WeatherApp.WebSite.Services.Interfaces;
 
-namespace WeatherApp.Webpage
+namespace WeatherApp.WebSite
 {
     public class Startup
     {

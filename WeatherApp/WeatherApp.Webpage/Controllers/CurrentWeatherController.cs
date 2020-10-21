@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
-using WeatherApp.Webpage.Models;
-using WeatherApp.Webpage.Services;
-using WeatherApp.Webpage.Services.Interfaces;
+using WeatherApp.WebSite.Models;
+using WeatherApp.WebSite.Services;
+using WeatherApp.WebSite.Services.Interfaces;
 
-namespace WeatherApp.Webpage.Controllers
+namespace WeatherApp.WebSite.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

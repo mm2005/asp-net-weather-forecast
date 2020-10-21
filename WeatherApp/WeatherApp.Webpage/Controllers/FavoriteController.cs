@@ -2,19 +2,20 @@
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
-using WeatherApp.Webpage.Models;
-using WeatherApp.Webpage.Services;
+using WeatherApp.WebSite.Models;
+using WeatherApp.WebSite.Services;
+using WeatherApp.WebSite.Services.Interfaces;
 
-namespace WeatherApp.Webpage.Controllers
+namespace WeatherApp.WebSite.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class FavoriteController : ControllerBase
     {
-        private readonly CurrentWeatherService _currentWeatherService;
+        private readonly ICurrentWeatherService _currentWeatherService;
         private FavoriteContext _context;
 
-        public FavoriteController(CurrentWeatherService currentWeatherService, FavoriteContext favoriteContext)
+        public FavoriteController(ICurrentWeatherService currentWeatherService, FavoriteContext favoriteContext)
         {
             _currentWeatherService = currentWeatherService;
             _context = favoriteContext;

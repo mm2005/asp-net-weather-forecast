@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using WeatherApp.Webpage.Models;
+using WeatherApp.WebSite.Models;
 
-namespace WeatherApp.Webpage.Services
+namespace WeatherApp.WebSite.Services
 {
     public class AutocompleteService
     {

@@ -3,9 +3,9 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using WeatherApp.Webpage.Models;
+using WeatherApp.WebSite.Models;
 
-namespace WeatherApp.Webpage.Services
+namespace WeatherApp.WebSite.Services
 {
     public class WeatherForecastService
     {

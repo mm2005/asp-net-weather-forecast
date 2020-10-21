@@ -2,10 +2,10 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
-using WeatherApp.Webpage.Models;
-using WeatherApp.Webpage.Services.Interfaces;
+using WeatherApp.WebSite.Models;
+using WeatherApp.WebSite.Services.Interfaces;
 
-namespace WeatherApp.Webpage.Services
+namespace WeatherApp.WebSite.Services
 {
     public class CurrentWeatherService : ICurrentWeatherService
     {

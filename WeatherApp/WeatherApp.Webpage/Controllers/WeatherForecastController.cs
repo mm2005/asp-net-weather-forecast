@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
-using WeatherApp.Webpage.Models;
-using WeatherApp.Webpage.Services;
+using WeatherApp.WebSite.Models;
+using WeatherApp.WebSite.Services;
 
-namespace WeatherApp.Webpage.Controllers
+namespace WeatherApp.WebSite.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

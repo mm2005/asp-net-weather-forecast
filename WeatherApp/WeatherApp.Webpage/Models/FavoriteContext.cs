@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WeatherApp.Webpage.Models
+namespace WeatherApp.WebSite.Models
 {
     public class FavoriteContext
     {

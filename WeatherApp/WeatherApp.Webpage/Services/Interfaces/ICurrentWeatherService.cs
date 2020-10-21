@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WeatherApp.Webpage.Models;
+using WeatherApp.WebSite.Models;
 
-namespace WeatherApp.Webpage.Services.Interfaces
+namespace WeatherApp.WebSite.Services.Interfaces
 {
     public interface ICurrentWeatherService
     {
