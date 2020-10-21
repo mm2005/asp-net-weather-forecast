@@ -20,7 +20,7 @@ namespace WeatherApp.WebSite.Services
         
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        public IList<Location> GetSuggestions(string query)
+        public IEnumerable<Location> GetSuggestions(string query)
         {
             string jsonString = "";
             string url = $"https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?query={query}&maxresults=5&resultType=city&language=en&apikey={API_KEY}";
@@ -43,7 +43,7 @@ namespace WeatherApp.WebSite.Services
             }
 
             var json = JObject.Parse(jsonString);
-            IList<Location> suggestionList = new List<Location>();
+            ISet<Location> suggestionList = new HashSet<Location>();
             var jsonSuggestion = json.GetValue("suggestions");
 
             foreach (var element in jsonSuggestion)

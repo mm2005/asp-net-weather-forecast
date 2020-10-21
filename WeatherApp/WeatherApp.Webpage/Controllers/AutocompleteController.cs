@@ -21,7 +21,7 @@ namespace WeatherApp.WebSite.Controllers
         }
 
         [HttpGet("{query}")]
-        public async Task<IList<Location>> Get(string query)
+        public async Task<IEnumerable<Location>> Get(string query)
         {
             return await Task.Run(() => _autocompleteService.GetSuggestions(query));
         }
