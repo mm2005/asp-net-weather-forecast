@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WeatherApp.Webpage.Models;
 using WeatherApp.Webpage.Services;
 
 namespace WeatherApp.Webpage
@@ -33,6 +34,7 @@ namespace WeatherApp.Webpage
             services.AddTransient<CurrentWeatherService, CurrentWeatherService>();
             services.AddTransient<WeatherForecastService, WeatherForecastService>();
             services.AddTransient<AutocompleteService, AutocompleteService>();
+            services.AddSingleton<FavoriteContext, FavoriteContext>();
             services.AddControllers();
         }
 
