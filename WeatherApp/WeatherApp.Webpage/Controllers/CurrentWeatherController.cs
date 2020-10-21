@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -23,10 +24,10 @@ namespace WeatherApp.WebSite.Controllers
         }
 
         [HttpGet("{city}")]
-        public CurrentWeather Get(string city)
+        public async Task<CurrentWeather> Get(string city)
         {
-            CurrentWeather bob = _currentWeatherService.GetCurrentWeather(city);
-            return _currentWeatherService.GetCurrentWeather(city);
+            //return _currentWeatherService.GetCurrentWeather(city);
+            return await Task.Run(() => _currentWeatherService.GetCurrentWeather(city));
         }
     }
 }

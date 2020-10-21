@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using WeatherApp.WebSite.Models;
 using WeatherApp.WebSite.Services;
 
@@ -18,9 +19,9 @@ namespace WeatherApp.WebSite.Controllers
         }
 
         [HttpGet("{city}")]
-        public IList<WeatherForecast> Get(string city)
+        public async Task<IList<WeatherForecast>> Get(string city)
         {
-            return _weatherForecastService.GetForecasts(city);
+            return await Task.Run(() =>_weatherForecastService.GetForecasts(city));
         }
     }
 }
