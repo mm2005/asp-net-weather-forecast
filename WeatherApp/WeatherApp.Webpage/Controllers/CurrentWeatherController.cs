@@ -25,12 +25,8 @@ namespace WeatherApp.Webpage.Controllers
         [HttpGet("{city}")]
         public CurrentWeather Get(string city)
         {
+            CurrentWeather bob = _currentWeatherService.GetCurrentWeather(city);
             return _currentWeatherService.GetCurrentWeather(city);
-        }
-
-        public string TestMethod()
-        {
-            return "Hello World";
         }
     }
 }

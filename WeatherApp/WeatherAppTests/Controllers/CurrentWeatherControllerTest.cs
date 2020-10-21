@@ -1,6 +1,8 @@
 using NSubstitute;
+using NSubstitute.Core.Arguments;
 using NUnit.Framework;
 using WeatherApp.Webpage.Controllers;
+using WeatherApp.Webpage.Models;
 using WeatherApp.Webpage.Services;
 using WeatherApp.Webpage.Services.Interfaces;
 
@@ -20,10 +22,14 @@ namespace WeatherApp.WebSite
         }
 
         [Test]
-        public void Test1()
+        public void Get_ExistingCity_ReturnCity()
         {
-            string expected = "Hello World";
-            string actual = _currentWeatherController.TestMethod();
+            string city = "Budapest";
+
+            _currentWeatherService.GetCurrentWeather(city).Returns(new CurrentWeather { City = city });
+
+            string expected = city;
+            string actual = _currentWeatherController.Get(city).City;
 
             Assert.AreEqual(expected, actual);
         }
