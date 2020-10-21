@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using WeatherApp.Webpage.Models;
 using WeatherApp.Webpage.Services;
 
 namespace WeatherApp.Webpage.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly CurrentWeatherService _currentWeatherService;
+        private readonly WeatherForecastService _weatherForecastService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, CurrentWeatherService currentWeatherService)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherForecastService weatherForecastService)
         {
             _logger = logger;
-            _currentWeatherService = currentWeatherService;
+            _weatherForecastService = weatherForecastService;
         }
 
         [HttpGet("{city}")]
-        public CurrentWeather Get(string city)
+        public IList<WeatherForecast> Get(string city)
         {
-            return _currentWeatherService.GetCurrentWeather(city);
+            return _weatherForecastService.GetForecasts(city);
         }
     }
 }

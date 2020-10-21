@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WeatherApp.Webpage.Services;
+using WeatherApp.Webpage.Services.Interfaces;
 
 namespace WeatherApp.Webpage
 {
@@ -30,7 +31,7 @@ namespace WeatherApp.Webpage
                                   });
             });
 
-            services.AddTransient<CurrentWeatherService, CurrentWeatherService>();
+            services.AddTransient<ICurrentWeatherService, CurrentWeatherService>();
             services.AddTransient<WeatherForecastService, WeatherForecastService>();
             services.AddTransient<AutocompleteService, AutocompleteService>();
             services.AddControllers();
