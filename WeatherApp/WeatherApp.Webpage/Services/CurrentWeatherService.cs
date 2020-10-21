@@ -3,10 +3,11 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
 using WeatherApp.Webpage.Models;
+using WeatherApp.Webpage.Services.Interfaces;
 
 namespace WeatherApp.Webpage.Services
 {
-    public class CurrentWeatherService
+    public class CurrentWeatherService : ICurrentWeatherService
     {
         const string API_KEY = "3c850b0463346d2fffad82b66d5eb561";
 

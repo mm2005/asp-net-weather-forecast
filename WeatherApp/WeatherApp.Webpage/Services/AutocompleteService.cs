@@ -61,4 +61,3 @@ namespace WeatherApp.Webpage.Services
         }
     }
 }
-

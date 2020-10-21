@@ -18,7 +18,7 @@ namespace WeatherApp.Webpage.Services
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        public IList<WeatherForecast> GetCurrentWeather(string city)
+        public IList<WeatherForecast> GetForecasts(string city)
         {
             string url = $"https://api.openweathermap.org/data/2.5/forecast?appid={API_KEY}&units=metric&q={city}";
             string jsonString = "";
