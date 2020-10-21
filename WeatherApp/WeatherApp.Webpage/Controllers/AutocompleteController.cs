@@ -13,12 +13,10 @@ namespace WeatherApp.Webpage.Controllers
     [Route("api/[controller]")]
     public class AutocompleteController : ControllerBase
     {
-        private readonly ILogger<CurrentWeatherController> _logger;
         private readonly AutocompleteService _autocompleteService;
 
-        public AutocompleteController(ILogger<CurrentWeatherController> logger, AutocompleteService autocompleteService)
+        public AutocompleteController(AutocompleteService autocompleteService)
         {
-            _logger = logger;
             _autocompleteService = autocompleteService;
         }
 

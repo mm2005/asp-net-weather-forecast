@@ -10,12 +10,10 @@ namespace WeatherApp.Webpage.Controllers
     [ApiController]
     public class WeatherForecastController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
         private readonly WeatherForecastService _weatherForecastService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherForecastService weatherForecastService)
+        public WeatherForecastController(WeatherForecastService weatherForecastService)
         {
-            _logger = logger;
             _weatherForecastService = weatherForecastService;
         }
 

@@ -22,4 +22,8 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherApp.Webpage\WeatherApp.WebSite.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -15,12 +15,10 @@ namespace WeatherApp.Webpage.Controllers
     [Route("api/[controller]")]
     public class CurrentWeatherController : ControllerBase
     {
-        private readonly ILogger<CurrentWeatherController> _logger;
         private readonly ICurrentWeatherService _currentWeatherService;
 
-        public CurrentWeatherController(ILogger<CurrentWeatherController> logger, ICurrentWeatherService currentWeatherService)
+        public CurrentWeatherController(ICurrentWeatherService currentWeatherService)
         {
-            _logger = logger;
             _currentWeatherService = currentWeatherService;
         }
 
@@ -30,7 +28,7 @@ namespace WeatherApp.Webpage.Controllers
             return _currentWeatherService.GetCurrentWeather(city);
         }
 
-        virtual public string TestMethod()
+        public string TestMethod()
         {
             return "Hello World";
         }
