@@ -57,18 +57,6 @@ namespace WeatherApp.Webpage.Services
                 };
                 suggestionList.Add(locationSuggestion);
             }
-            //var currentWeather = new CurrentWeather()
-            //{
-            //    ID = Convert.ToInt64(json.GetValue("id")),
-            //    City = json.GetValue("name").ToString(),
-            //    Description = (string)json["weather"][0]["description"],
-            //    Icon = (string)json["weather"][0]["icon"],
-            //    Humidity = Convert.ToInt32(json.GetValue("main")["humidity"]),
-            //    Temp = Convert.ToInt32(json.GetValue("main")["temp"]),
-            //    Pressure = Convert.ToInt32(json.GetValue("main")["pressure"]),
-            //    Wind = Convert.ToDouble((json.GetValue("wind")["speed"]))
-            //};
-            //return currentWeather;
             return suggestionList;
         }
     }
