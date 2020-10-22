@@ -1,6 +1,7 @@
 using NSubstitute;
 using NSubstitute.Core.Arguments;
 using NUnit.Framework;
+using System.Threading.Tasks;
 using WeatherApp.WebSite.Controllers;
 using WeatherApp.WebSite.Models;
 using WeatherApp.WebSite.Services;
@@ -22,14 +23,15 @@ namespace WeatherApp.WebSite
         }
 
         [Test]
-        public void Get_ExistingCity_ReturnCity()
+        public async Task Get_ExistingCity_ReturnCity()
         {
             string city = "Budapest";
 
             _currentWeatherService.GetCurrentWeather(city).Returns(new CurrentWeather { City = city });
 
             string expected = city;
-            string actual = _currentWeatherController.Get(city).City;
+            CurrentWeather currentWeather = await _currentWeatherController.Get(city);
+            string actual = currentWeather.City;
 
             Assert.AreEqual(expected, actual);
         }
