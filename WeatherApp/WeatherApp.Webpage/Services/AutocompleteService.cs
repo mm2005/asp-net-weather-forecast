@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -11,17 +12,19 @@ namespace WeatherApp.WebSite.Services
 {
     public class AutocompleteService
     {
-        const string API_KEY = "jzxwrjVpz590MChJ0KjlrLnwg_syikNAPYB0tvSemLE";
-
-        public AutocompleteService(IWebHostEnvironment webHostEnvironment)
+        public AutocompleteService(IWebHostEnvironment webHostEnvironment, IConfiguration configuration)
         {
             WebHostEnvironment = webHostEnvironment;
+            Configuration = configuration;
+
         }
         
         public IWebHostEnvironment WebHostEnvironment { get; }
+        public IConfiguration Configuration { get; }
 
         public IEnumerable<Location> GetSuggestions(string query)
         {
+            string API_KEY = Configuration["ApiKeySearch"];
             string jsonString = "";
             string url = $"https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?query={query}&maxresults=5&resultType=city&language=en&apikey={API_KEY}";
 

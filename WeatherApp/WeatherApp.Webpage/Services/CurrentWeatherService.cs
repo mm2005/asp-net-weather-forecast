@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
@@ -9,17 +10,20 @@ namespace WeatherApp.WebSite.Services
 {
     public class CurrentWeatherService : ICurrentWeatherService
     {
-        const string API_KEY = "3c850b0463346d2fffad82b66d5eb561";
-
-        public CurrentWeatherService(IWebHostEnvironment webHostEnvironment)
+        
+        public CurrentWeatherService(IWebHostEnvironment webHostEnvironment, IConfiguration configuration)
         {
             WebHostEnvironment = webHostEnvironment;
+            Configuration = configuration;
         }
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
+        public IConfiguration Configuration { get; }
+
         public CurrentWeather GetCurrentWeather(string city)
         {
+            string API_KEY = Configuration["ApiKeyWeather"];
             string jsonString = "";
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric";
 

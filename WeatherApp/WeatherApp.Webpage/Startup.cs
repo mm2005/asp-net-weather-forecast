@@ -6,11 +6,13 @@ using Microsoft.Extensions.Hosting;
 using WeatherApp.WebSite.Models;
 using WeatherApp.WebSite.Services;
 using WeatherApp.WebSite.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace WeatherApp.WebSite
 {
     public class Startup
     {
+        private string Config = null;
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public Startup(IConfiguration configuration)
@@ -31,11 +33,13 @@ namespace WeatherApp.WebSite
                                       builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                                   });
             });
-
+            Config = Configuration["ConnectionStrings"];
+            services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Config));
             services.AddTransient<ICurrentWeatherService, CurrentWeatherService>();
             services.AddTransient<WeatherForecastService, WeatherForecastService>();
             services.AddTransient<AutocompleteService, AutocompleteService>();
             services.AddSingleton<FavoriteContext, FavoriteContext>();
+            services.AddTransient<IUserRepository, SQLUserRepository>();
             services.AddControllers();
         }
 
